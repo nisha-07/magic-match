@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from "react";
 
 const cardImages = [
-  { src: "img/,rose.png" },
+  { src: "img/rose.png" },
   { src: "img/sword.png" },
   { src: "img/key.png" },
   { src: "img/lock.png" },
@@ -28,6 +28,15 @@ function App() {
     <div className="App">
       <h1>Magic match</h1>
       <button onClick={shuffleCards}>New game</button>
+      <div className="card-grid" >
+        {cards.map((card) => (<div key={card.id}>
+          <div>
+            <img src={card.src} className="front" alt="front" />
+            <img src="./img/cover.png" className="back" alt="back" />
+          </div>
+        </div>))
+        }
+      </div>
     </div>
   );
 }
