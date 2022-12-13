@@ -1,4 +1,6 @@
 import './App.css';
+
+import SingleCard from './components/SingleCard/SingleCard';
 import { useState } from "react";
 
 const cardImages = [
@@ -26,16 +28,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Magic match</h1>
+      <h1> Magic match</h1 >
       <button onClick={shuffleCards}>New game</button>
       <div className="card-grid" >
-        {cards.map((card) => (<div key={card.id}>
-          <div>
-            <img src={card.src} className="front" alt="front" />
-            <img src="./img/cover.png" className="back" alt="back" />
-          </div>
-        </div>))
-        }
+        {cards.map((card) => (
+          <SingleCard key={card.id} card={card} />
+        ))}
       </div>
     </div>
   );
